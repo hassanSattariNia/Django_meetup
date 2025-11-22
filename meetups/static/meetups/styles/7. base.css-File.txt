@@ -1,0 +1,1 @@
+https://github.com/academind/django-practical-guide-course-code/blob/summary-14-finished/meetups/static/meetups/styles/base.css
