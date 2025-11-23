@@ -17,4 +17,16 @@ def index(request):
     return render(request, 'meetups/index.html', {
         'meetups': meetups,
         'show_meetups': False
-    }) 
+    })
+
+
+def meetup_details(request,meetup_slug):
+    print(meetup_slug)
+    selected_meetup = {
+        'title':'Here is First Meetup',
+        'description':'This is description for second meetups'
+    }
+    return render(request, 'meetups/meetup-details.html',
+                  {
+                      'selected_meetup': selected_meetup
+                  })
