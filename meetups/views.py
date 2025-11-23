@@ -8,4 +8,13 @@ def index(request):
 
     #return HttpResponse('Hello World!')
     # now we have to return html file as response 
-    return render(request, 'meetups/index.html')
+    
+    # dynamic data show on template
+    meetups= [
+        {'title':'this is first Meetups'},
+        {'title':'this is second Meetups'}
+    ]
+    return render(request, 'meetups/index.html',{
+        'meetups':meetups,
+        'show_meetups':False
+    })

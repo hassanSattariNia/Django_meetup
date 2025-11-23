@@ -11,4 +11,15 @@ Url AND Views
 
 
 **Template**
- 
+inside every app is default folder for tempates => if you want more directory or you want change it you can set in settings
+another point is inside every app/template we create another folder using name of app because at finally every templates collect from all apps and is for separate template for different apps that have simmilar templates 
+
+**statics**
+all static files like 
+css, 
+scrips for javascript codes
+images
+
+**danamic-data-from-view-to-template**
+<p>{{ meetups.0.title}}</p>
+

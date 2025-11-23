@@ -1,14 +1,31 @@
-{% load static  %}
+<!-- for use staic to load static and can link to css file located in statics folder -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Meetups</title>
+    <!-- to link for css that included inside static folder -->
     <link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}">
 </head>
+
 <body>
     <h1>All meetups</h1>
-    <p>Hello word!</p>
+    <!-- is not python that you can access meetups[0]['title'] and you have to access like bottom -->
+    
+    {% if show_meetups %}
+    <h2>
+        Dont show meetups
+    </h2>
+    <!-- is neccessary to use endif here and agains python space at start line dont matter and indentation not matter -->
+    {% else %}
+    
+        {% for item_meetups in meetups %}
+        <p> {{ item_meetups.title }} </p>
+        {% endfor %}
+    {% endif %}
 </body>
+
 </html>
