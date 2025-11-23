@@ -9,23 +9,43 @@
     <title>All Meetups</title>
     <!-- to link for css that included inside static folder -->
     <link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}">
+    <link rel="stylesheet" href="{% static 'meetups/styles/all-meetups.css' %}">
 </head>
 
 <body>
-    <h1>All meetups</h1>
-    <!-- is not python that you can access meetups[0]['title'] and you have to access like bottom -->
-    
-    {% if show_meetups %}
-    <h2>
-        Dont show meetups
-    </h2>
-    <!-- is neccessary to use endif here and agains python space at start line dont matter and indentation not matter -->
-    {% else %}
-    
-        {% for item_meetups in meetups %}
-        <p> {{ item_meetups.title }} </p>
-        {% endfor %}
-    {% endif %}
+    <header id="main-header">
+        <nav>
+            <a href="/meetups" id="main-logo">Django Meetups</a>
+            <h1>We got great meetups coming up!</h1>
+            <p>Find the one that best suit your needs!</p>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Upcoming Meetups</h2>
+            <ol>
+                {% for item in meetups %}
+                <li class="meetup-item">
+                    <article>
+                        <div class="meetup-summary">
+                            <div class="meetup-image">
+                                <img src="" alt="">
+                            </div>
+                            <div class="meetup-details">
+                                <h3>{{ item.title }}</h3>
+                                <address> {{ item.location }}</address>
+                            </div>
+                        </div>
+                        <div class="meetup-action">
+                            <a href="" class="btn">More Details</a>
+                        </div>
+                    </article>
+                </li>
+                {% endfor %}
+            </ol>
+        </section>
+
+    </main>
 </body>
 
 </html>
