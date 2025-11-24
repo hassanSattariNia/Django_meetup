@@ -23,3 +23,14 @@ images
 **danamic-data-from-view-to-template**
 <p>{{ meetups.0.title}}</p>
 
+**daynamic-path-segment-in-urls**
+path('meetups/<slug:meetup_slug>',views.meetup_details)#using dynamic path segment
+
+we can define name or tag for urls 
+
+**base-template**
+you can define a base template once and use it in pages that you want
+
+one example
+    the block section can be overwritten 
+    <title> {% block title %} My Meetups(Default Value) {% endblock %}</title>
