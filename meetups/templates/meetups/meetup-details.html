@@ -8,6 +8,7 @@
 {% block main_heading%}{{ selected_meetup.title }}{% endblock %}
  
 {% block body %}
+{% if meetup_found %}
 <article>
     <img src="" alt="">
 
@@ -35,5 +36,10 @@
         FORM
     </section>
 </article>
+ 
+{%else%}
+<h2>meetup not found</h2>
+{%endif%}
+
 {% endblock %}
   

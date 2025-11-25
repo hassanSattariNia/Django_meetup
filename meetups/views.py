@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Meetup
 
 
 # Create your views here.
@@ -10,10 +11,7 @@ def index(request):
     # now we have to return html file as response
 
     # dynamic data show on template
-    meetups = [
-        {'title': 'First Meetups', 'location': 'New York', 'slug': 'a-frist-meetups'},
-        {'title': 'Second Meetups', 'location': 'Paris', 'slug': 'a-second-meetups'}
-    ]
+    meetups = Meetup.objects.all()  
     return render(request, 'meetups/index.html', {
         'meetups': meetups,
         'show_meetups': False
@@ -21,12 +19,14 @@ def index(request):
 
 
 def meetup_details(request,meetup_slug):
-    print(meetup_slug)
-    selected_meetup = {
-        'title':'Here is First Meetup',
-        'description':'This is description for second meetups'
-    }
-    return render(request, 'meetups/meetup-details.html',
-                  {
-                      'selected_meetup': selected_meetup
-                  })
+    try:
+        selected_meetup = Meetup.objects.get(slug=meetup_slug)
+        return render(request, 'meetups/meetup-details.html',
+                    { 
+                        'meetup_found':True,
+                        'selected_meetup': selected_meetup
+                    })
+    except Exception as exc:
+        return render(request, 'meetups/meetup-details.html',{
+            'meetup_found':False
+        })

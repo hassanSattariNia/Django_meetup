@@ -34,3 +34,7 @@ you can define a base template once and use it in pages that you want
 one example
     the block section can be overwritten 
     <title> {% block title %} My Meetups(Default Value) {% endblock %}</title>
+
+**include**
+include tage - path of html file - with keyword - name of variable used in template used with values of them
+        {% include 'meetups/includes/meetup-item.html' with title=item.title location=item.location slug=item.slug %}
