@@ -7,3 +7,5 @@ class Meetup(models.Model):
     #models.slug built with django to provide text have slug format
     slug = models.SlugField(unique=True)
     description=models.TextField()
+    image = models.ImageField(upload_to='images')
+    

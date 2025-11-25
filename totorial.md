@@ -38,3 +38,11 @@ one example
 **include**
 include tage - path of html file - with keyword - name of variable used in template used with values of them
         {% include 'meetups/includes/meetup-item.html' with title=item.title location=item.location slug=item.slug %}
+
+
+**images-upload-urls**
+in settings
+MEDIA_ROOT = BASE_DIR/'uploads'
+MEDIA_URL ='/files/'
+
+and also you need to install pillow package 
