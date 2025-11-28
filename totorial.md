@@ -46,3 +46,6 @@ MEDIA_ROOT = BASE_DIR/'uploads'
 MEDIA_URL ='/files/'
 
 and also you need to install pillow package 
+
+**/admin-area**
+for manage a model in adminstration area have to register that model inside admin.py

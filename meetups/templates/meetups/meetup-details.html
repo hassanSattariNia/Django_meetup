@@ -10,14 +10,14 @@
 {% block body %}
 {% if meetup_found %}
 <article>
-    <img src="" alt="">
+    <img id="main-image" src="{{ selected_meetup.image.url }}" alt="{{ selected_meetup.title }}">
 
     <section id="location">
         <h2>Meetup Location</h2>
         <address>
             This meetup takes place in 
-            <span>{{ selected_meetup.location_name }}</span>
-            ({{ selected_meetup.address }})
+            <span>{{ selected_meetup.location.name }}</span>
+            ({{ selected_meetup.location.address }})
         </address>
     </section>
 
