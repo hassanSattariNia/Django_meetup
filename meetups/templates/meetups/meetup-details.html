@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{% static 'meetups/styles/meetup-detail.css' %}">
 {% endblock %}
 {% block main_heading%}{{ selected_meetup.title }}{% endblock %}
- 
+
 {% block body %}
 {% if meetup_found %}
 <article>
@@ -15,7 +15,7 @@
     <section id="location">
         <h2>Meetup Location</h2>
         <address>
-            This meetup takes place in 
+            This meetup takes place in
             <span>{{ selected_meetup.location.name }}</span>
             ({{ selected_meetup.location.address }})
         </address>
@@ -27,19 +27,28 @@
 
         <footer>
             Need more details? Please contact the organizer
-            <a href="">Contact the Organizer</a>
+           <a href="mailto:{{ meetup.organizer_email }}">Contact the Organizer</a>
         </footer>
     </section>
 
     <section id="registration">
         <h2>Join Us!</h2>
-        FORM
+        <form action="{% url 'meetup-details' selected_meetup.slug %}" method="POST">
+            {% csrf_token  %}
+            <ul>
+                {{ form.as_ul }}
+            </ul>
+            <div id="registration-actions">
+                <button>
+                    Register
+                </button>
+            </div>
+        </form>
     </section>
 </article>
- 
+
 {%else%}
 <h2>meetup not found</h2>
 {%endif%}
 
 {% endblock %}
-  
